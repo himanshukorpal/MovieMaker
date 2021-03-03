@@ -1,11 +1,17 @@
 from flask import Flask
 from config import Config
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-
+from pymongo import MongoClient
 app = Flask(__name__)
 app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-from app import routes, models
+client = MongoClient("mongodb://localhost:27017/")
+db = client.moviemaker
+# collection = db.template
+# template = db.template
+# temp = video_templates
+# template.insert_many([temp])
+
+
+
+from app import routes
+
 

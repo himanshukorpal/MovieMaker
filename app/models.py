@@ -1,10 +1,25 @@
 from app import db
+collection = db.template
+template = db.template
+class Template:
+    video_templates = [
+        {
+            "title": "i love u", 
+            "url": "/home/himanshu/videos", 
+            "duration" : "4 min"
+        },
+            {
+            "title": "i love u", 
+            "url": "/home/himanshu/videos", 
+            "duration" : "4 min"
+        },
+            {
+            "title": "i love u", 
+            "url": "/home/himanshu/videos", 
+            "duration" : "4 min"
+        }
 
-class Template(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(64), index=True, unique=True)
 
+    ]
 
-    def __repr__(self):
-        return f'<Template {self.title}>'
 

@@ -1,16 +1,16 @@
 {% extends "layout.html" %} 
 {% block body %}
-<form>
+<form action="" method="POST">
 <div class="container">
     <div class="input-group mb-3 mt-5">
     <div class="input-group-prepend">
       <label class="input-group-text" for="inputGroupSelect01">Templates</label>
     </div>
     <select class="custom-select" id="inputGroupSelect01">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option selected disabled hidden>Choose...</option>
+      {% for i in range(5) %}
+        <option value={{ i }}>{{ i }}</option>
+      {% endfor %}
     </select>
   </div>
     <div class="input-group mb-3 mt-5 ">
@@ -18,10 +18,10 @@
       <label class="input-group-text" for="inputGroupSelect01">Music</label>
     </div>
     <select class="custom-select" id="inputGroupSelect01">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option selected disabled hidden>Choose...</option>
+      {% for i in range(5) %}
+        <option value={{ i }}>{{ i }}</option>
+      {% endfor %}
     </select>
   </div>
   <input class="form-control mt-5" type="text" placeholder="Enter Text Here">

@@ -12,6 +12,6 @@ db = client.moviemaker
 
 
 
-from app import routes
+from app import routes, models
 
 

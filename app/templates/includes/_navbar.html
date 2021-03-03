@@ -1,3 +1,4 @@
+
 <div class="navbar">
   <div class="container">
     <a class="logo" href="#">MovieMaker</a>
@@ -16,14 +17,15 @@
         alt="close navigation"
       />
       <ul class="primary-nav">
-        <li class="current"><a href="#">Home</a></li>
+        <li class="current"><a href={{ url_for('index') }}>Home</a></li>
         <li><a href="#">Templates</a></li>
         <li><a href="#">Music</a></li>
       </ul>
 
       <ul class="secondary-nav">
-        <li class="create-magic-cta"><a href="#">Create Magic!</a></li>
+        <li class="create-magic-cta"><a href={{ url_for('getstarted') }}>Create Magic!</a></li>
       </ul>
     </nav>
   </div>
 </div>
+

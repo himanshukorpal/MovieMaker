@@ -1,4 +1,4 @@
-from flask import render_template, url_for, request, redirect
+from flask import render_template, url_for, request, redirect, flash, session
 from app import app
 from app import db
 from movie import VideoMaker
@@ -25,7 +25,8 @@ def getstarted():
         music_select = request.form.get('music-select')
         text_select = request.form.get('text-select')
         if None in [music_select, video_select] or text_select == '' :
-                pass
+            flash("You Are Misssing Some Fields to Select or Fill", "warning")
+            pass
         else:
             VideoMaker(video_select, music_select, text_select)
             return redirect(url_for('index'))

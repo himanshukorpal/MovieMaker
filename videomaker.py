@@ -40,8 +40,12 @@ def vortexout(screenpos,i,nletters):
 
 
 
-def maker(video_path, text, effect):
+def maker(video_path, text, effect, music_path):
         video_clip = VideoFileClip(video_path)
+        audio_clip = AudioFileClip(music_path)
+
+        # bg_music = audio_clip.subclip(0, video_clip.duration)
+        video_clip = video_clip.set_audio(audio_clip)
         fps = video_clip.fps
 
 # WE CREATE THE TEXT THAT IS GOING TO MOVE, WE CENTER IT.
@@ -73,11 +77,11 @@ def maker(video_path, text, effect):
 
 # WE CONCATENATE EVERYTHING AND WRITE TO A FILE
 
-        clips = CompositeVideoClip(moveLetters(letters, effect), size = screensize)
-        clips = clips.set_duration(5)
+        effect_clip = CompositeVideoClip(moveLetters(letters, effect), size = screensize)
+        effect_clip = effect_clip.set_duration(5)
 
-        final_clip = CompositeVideoClip([video_clip, clips])
+        final_clip = CompositeVideoClip([video_clip, effect_clip])
 
 # final_clip = concatenate_videoclips(clips)
-        final_clip.write_videofile('../../coolTextEffects.avi',fps=25,codec='mpeg4')
+        final_clip.write_videofile('../MovieMaker/app/static/final-Videos/coolTextEffects.mp4')
 

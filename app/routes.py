@@ -34,8 +34,9 @@ def getstarted():
             return redirect(url_for('getstarted'))
 
         else:
-            maker(video_select, text_select, transitions[effect_select])
-            return redirect(url_for('index'))
+            maker(video_select, text_select, transitions[effect_select], music_select)
+            flash("", "show")
+            # return redirect(url_for('getstarted'))
 
 
 

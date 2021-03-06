@@ -12,5 +12,18 @@ mobileBtnExit.addEventListener("click", () => {
 
 function loading() {
   $(".loader").show();
+  let frm = document.getElementById("#form");
+  frm.submit();
+  frm.reset();
+  return false;
+  // document.getElementById("form").reset();
   // $("#content").prop("disabled", false);
+}
+
+function toggle() {
+  document.querySelector(".trailer").remove();
+  // let video = document.querySelector("video");
+  // trailer.classList.toggle("active");
+  // video.pause();
+  // video.currentTime = 0;
 }

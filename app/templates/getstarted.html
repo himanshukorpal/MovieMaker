@@ -1,32 +1,54 @@
 {% extends "layout.html" %} 
 {% block body %}
-<form  method="POST">
-<div class="container">
-    <div class="input-group mb-3 mt-5">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Templates</label>
-    </div>
-    <select name='video-select' class="custom-select" id="inputGroupSelect01">
-      <option selected disabled hidden>Choose...</option>
-      {% for i in video %}
-        <option value={{ i['url'] }}>{{ i['title'] }}</option>
-      {% endfor %}
-    </select>
+  <div id="loader" class="loader" >
+      <img src="../static/Images/loader.svg" alt="Loading.."/>
   </div>
-    <div class="input-group mb-3 mt-5 ">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Music</label>
+
+
+  <form  method="POST">
+    <div class="container" >
+      <div class="input-group mb-3 mt-5 content">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Templates</label>
+      </div>
+      <select id="content" name='video-select' class="custom-select" id="inputGroupSelect01">
+        <option selected disabled hidden>Choose...</option>
+        {% for i in video %}
+          <option value={{ i['url'] }}>{{ i['title'] }}</option>
+        {% endfor %}
+      </select>
     </div>
-    <select name="music-select" class="custom-select" id="inputGroupSelect01">
-      <option selected disabled hidden>Choose...</option>
-      {% for i in music %}
-        <option value={{ i['url'] }}>{{ i['title'] }}</option>
-      {% endfor %}
-    </select>
+    
+
+    <div class="input-group mb-3 mt-5 content">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Music</label>
+      </div>
+      <select id="content" name="music-select" class="custom-select" id="inputGroupSelect01">
+        <option selected disabled hidden>Choose...</option>
+        {% for i in music %}
+          <option value={{ i['url'] }}>{{ i['title'] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+   
+
+    <div class="input-group mb-3 mt-5 content ">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Effects</label>
+      </div>
+      <select id="content" name="effect-select" class="custom-select" id="inputGroupSelect01">
+        <option selected disabled hidden>Choose...</option>
+        {% for i  in transitions %}
+          <option value={{ i }}>{{ i }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <input name="text-select" class="form-control mt-5" type="text" placeholder="Enter Your Title Here">
+    
+    <button type="submit" class="btn btn-primary btn-lg rounded-pill mt-5" onclick="loading()">Create Magic!</button>
   </div>
-  <input name="text-select" class="form-control mt-5" type="text" placeholder="Enter Text Here">
-  <button type="submit" class="btn btn-primary btn-lg rounded-pill mt-5">Create Magic!</button>
-</div>
-</form>
+  </form>
 
 {% endblock %}

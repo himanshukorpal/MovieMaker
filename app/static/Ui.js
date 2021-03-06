@@ -9,3 +9,8 @@ mobileBtn.addEventListener("click", () => {
 mobileBtnExit.addEventListener("click", () => {
   nav.classList.remove("menu-btn");
 });
+
+function loading() {
+  $(".loader").show();
+  // $("#content").prop("disabled", false);
+}

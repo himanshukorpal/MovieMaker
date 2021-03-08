@@ -83,5 +83,5 @@ def maker(video_path, text, effect, music_path):
         final_clip = CompositeVideoClip([video_clip, effect_clip])
 
 # final_clip = concatenate_videoclips(clips)
-        final_clip.write_videofile('../MovieMaker/app/static/final-Videos/coolTextEffects.mp4')
+        final_clip.write_videofile(f'../MovieMaker/Videos/{text}.mp4')
 

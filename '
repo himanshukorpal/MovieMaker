@@ -1,4 +1,4 @@
-from flask import render_template, url_for, request, redirect, flash, session, send_file, send_from_directory
+from flask import render_template, url_for, request, redirect, flash, session, send_file
 import os
 from app import app
 from app import db
@@ -29,8 +29,7 @@ def getstarted():
         music_select = request.form.get('music-select')
         effect_select = request.form.get('effect-select')
         text_select = request.form.get('text-select')
-        global text  
-        text = text_select
+        text_name = text_select
         if None in [music_select, video_select, effect_select] or text_select == '' :
             flash("You Are Misssing Some Fields to Select or Fill", "warning")
             return redirect(url_for('getstarted'))
@@ -38,22 +37,15 @@ def getstarted():
         else:
             maker(video_select, text_select, transitions[effect_select], music_select)
             # flash("", "show")
-            return redirect(url_for('database'))
+            return redirect(url_for('downloadFile'))
 
 
 
     return render_template('getstarted.html', video=video_files, music=music_files, transitions=transitions)
 
-
-
-@app.route('/database')
-def database():
-    # generate some file name
-    # save the file in the `database_reports` folder used below
-    return render_template('database.html', filename=f"{text}.mp4")
-
-@app.route('/database_download/<filename>')
-def database_download(filename):
-    return send_from_directory('../Videos', filename)
-
+@app.route('/download')
+def downloadFile ():
+    #For windows you need to use drive name [ex: F:/Example.pdf]
+    path = "../Videos/effects.mp4"
+    return send_file(path, as_attachment=True)
 

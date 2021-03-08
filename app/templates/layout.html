@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/sytle.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../static/loader.css" type="text/css" />
     <link rel="stylesheet" href="../static/test.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="../static/download.css" type="text/css" /> -->
+
 
     <title>MovieMaker</title>
     {% block head %}{% endblock %}
   </head>
   <body>
-    {% include "includes/_navbar.html" %}
+{% include "includes/_navbar.html" %}
     <div class="container">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -24,15 +27,15 @@
             <span aria-hidden="true">&times;</span>
           </button>
       </div> 
-           {% elif category == "show" %}
-                <div class="trailer">
-                        <video width="320" height="240" controls>
-                          <source src="../static/final-Videos/coolTextEffects.mp4" type="video/mp4" />
-                          <!-- <source src="movie.ogg" type="video/ogg" /> -->
-                          Your browser does not support the video tag.
-                        </video>
-                        <img src="../static/Images/exit.svg" class="closevideo" alt="close" onclick="toggle()"/>
-                </div>
+           <!-- {% elif category == "show" %} -->
+           <!--      <div class="trailer"> -->
+           <!--              <video  controls> -->
+           <!--                <source src={{ url_for('static', filename='effect.mp4') }} type="video/mp4" /> -->
+           <!--                <!-1- <source src="movie.ogg" type="video/ogg" /> -1-> -->
+           <!--                Your browser does not support the video tag. -->
+           <!--              </video> -->
+           <!--              <img src="../static/Images/exit.svg" class="closevideo" alt="close" onclick="toggle()"/> -->
+           <!--      </div> -->
 
     </div>
       {%endif%}

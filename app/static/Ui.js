@@ -15,6 +15,7 @@ function loading() {
   let frm = document.getElementById("#form");
   frm.submit();
   frm.reset();
+
   return false;
   // document.getElementById("form").reset();
   // $("#content").prop("disabled", false);
@@ -22,6 +23,7 @@ function loading() {
 
 function toggle() {
   document.querySelector(".trailer").remove();
+  // window.location.href = "http://127.0.0.1:5000/";
   // let video = document.querySelector("video");
   // trailer.classList.toggle("active");
   // video.pause();
